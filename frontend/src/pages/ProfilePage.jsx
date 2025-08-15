@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ProfilePage() {
   return (
-    <div className="bg-blue-50 min-h-screen p-6">
+
       <div className="max-w-6xl mx-auto bg-white rounded-3xl shadow-lg p-10">
 
         {/* Improved Basic Info Section */}
@@ -128,6 +128,6 @@ export default function ProfilePage() {
 
         </div>
       </div>
-    </div>
+
   );
 }
