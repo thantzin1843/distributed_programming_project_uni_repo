@@ -5,10 +5,11 @@ import { CiSearch } from "react-icons/ci";
 import { CiCirclePlus } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const location = useLocation()
   return (
     <header className=" py-5 px-6 md:px-10 bg-blue-50  ">
       <div className="container mx-auto flex items-center justify-between">
@@ -21,9 +22,9 @@ const Navbar = () => {
           </a>
           <nav className="hidden lg:block ml-12">
             <ul className="flex space-x-8">
-              <li><a href="/" className="font-medium bg-gradient-to-tr from-blue-700 via-blue-500 to-blue-300 bg-clip-text text-transparent hover:from-blue-800 transition duration-300">Home</a></li>
-              <li><a href="/projects" className="font-medium text-gray-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:via-blue-500 hover:to-blue-300 hover:bg-clip-text hover:text-transparent transition duration-300">Projects</a></li>
-              <li><a href="/forums" className="font-medium text-gray-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:via-blue-500 hover:to-blue-300 hover:bg-clip-text hover:text-transparent transition duration-300">Forums</a></li>
+              
+              <li><a href="/projects" className={`${location?.pathname == "/projects" ? "text-blue-500" : "text-gray-500"} font-medium  hover:bg-gradient-to-tr hover:from-blue-700 hover:via-blue-500 hover:to-blue-300 hover:bg-clip-text hover:text-transparent transition duration-300`}>Projects</a></li>
+              <li><a href="/forums" className={`${location?.pathname == "/forums" ? "text-blue-500" : "text-gray-500"} font-medium  hover:bg-gradient-to-tr hover:from-blue-700 hover:via-blue-500 hover:to-blue-300 hover:bg-clip-text hover:text-transparent transition duration-300`}>Forums</a></li>
             </ul>
           </nav>
         </div>
@@ -38,7 +39,7 @@ const Navbar = () => {
           </div> */}
           <button className="hidden bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-700 transition duration-300 md:flex items-center font-semibold">
             <CiCirclePlus className="mr-2 text-white text-2xl" />
-            Ask Question
+            Upload Project
           </button>
           <a href="/profile" className="text-gray-700 hover:text-blue-500 transition duration-300 hidden md:block border p-2 rounded-full hover:bg-blue-100">
             <FaUser className="text-xl" />
@@ -55,9 +56,9 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <nav className={`lg:hidden mt-4 ${isMobileMenuOpen ? '' : 'hidden'}`}>
         <ul className="flex flex-col space-y-2">
-          <li><a href="#" className="block font-medium text-gray-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:via-blue-500 hover:to-blue-300 hover:bg-clip-text hover:text-transparent transition duration-300 py-2">Home</a></li>
-          <li><a href="#" className="block font-medium text-gray-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:via-blue-500 hover:to-blue-300 hover:bg-clip-text hover:text-transparent transition duration-300 py-2">Projects</a></li>
-          <li><a href="#" className="block font-medium text-gray-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:via-blue-500 hover:to-blue-300 hover:bg-clip-text hover:text-transparent transition duration-300 py-2">Forums</a></li>
+         
+          <li><a href="#" className={`${location.pathname == '' ? "": ""} block font-medium text-gray-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:via-blue-500 hover:to-blue-300 hover:bg-clip-text hover:text-transparent transition duration-300 py-2`}>Projects</a></li>
+          <li><a href="#" className={`${location.pathname == '' ? "": ""} block font-medium text-gray-700 hover:bg-gradient-to-tr hover:from-blue-700 hover:via-blue-500 hover:to-blue-300 hover:bg-clip-text hover:text-transparent transition duration-300 py-2`}>Forums</a></li>
         </ul>
       </nav>
     </header>

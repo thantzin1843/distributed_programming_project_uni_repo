@@ -5,6 +5,7 @@ import { CiSearch } from "react-icons/ci";
 import { MdFavoriteBorder } from "react-icons/md";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { FaBars, FaTimes } from "react-icons/fa"; // New icons for mobile menu
+import { ListFilter, ThumbsUp } from 'lucide-react';
 
 const categories = [
     "AI & Machine Learning",
@@ -130,7 +131,7 @@ function ProjectListPage() {
                         className="p-2 text-gray-700 hover:text-gray-900"
                         onClick={() => setMobileFiltersOpen(!mobileFiltersOpen)}
                     >
-                        {mobileFiltersOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+                        {mobileFiltersOpen ? <FaTimes size={20} /> : <ListFilter size={20} />}
                     </button>
                 </div>
                 
@@ -239,7 +240,7 @@ function ProjectListPage() {
                             <div key={index} className="bg-white p-4 rounded-lg shadow hover:shadow-lg transition-shadow duration-300">
                                 <div className="relative w-full h-[250px] mb-4">
                                     <img src="https://investingnews.com/media-library/robot-hand-touching-human-hand-with-a-spark-in-between.jpg?id=33553684&width=1200&height=800&quality=80&coordinates=0%2C0%2C0%2C1" className='w-full h-full object-cover rounded-lg' alt="Project thumbnail" />
-                                    <button className='absolute top-3 right-3 text-xl border rounded-full p-2 bg-white hover:bg-gray-200'><MdFavoriteBorder size={25} /></button>
+                                    <button className='absolute top-3 right-3 text-xl border rounded-full p-2 bg-white hover:bg-gray-200'><ThumbsUp size={25} /></button>
                                 </div>
                                 <h2 className="text-xl font-semibold mb-2 line-clamp-2">Project Title</h2>
                                 <div className='mb-2'>By <span className="text-blue-500 underline font-bold">UIT teams</span></div>
