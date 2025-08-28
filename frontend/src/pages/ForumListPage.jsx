@@ -1,7 +1,20 @@
 // ForumListComp.jsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ForumListComp = () => {
+    const [forums, setForums] = useState([]);
+    const fetchForums = async () => {
+        try {
+            const response = await fetch();
+            const data = await response.json();
+            setForums(data);
+        } catch (error) {
+            console.error('Error fetching forums:', error);
+        }
+    }
+    useEffect(()=>{
+        fetchForums();
+    },[])
   const forumPosts = [
     {
       upvotes: 48,
@@ -61,9 +74,9 @@ const ForumListComp = () => {
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
             <h1 className="text-4xl font-extrabold text-black mb-4 md:mb-0">Explore University Forum</h1>
             <div className="flex flex-wrap gap-3">
-              <button className="px-5 py-2 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300 transition duration-300 font-medium">Newest</button>
-              <button className="px-5 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 transition duration-300 font-medium">Trending</button>
-              <button className="px-5 py-2 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300 transition duration-300 font-medium">Unanswered</button>
+              <a href='/forums/ask' className="px-5 py-2 rounded-full bg-blue-500 text-white hover:bg-blue-600 transition duration-300 font-medium">Ask Question ?</a>
+{/*               <button className="px-5 py-2 rounded-full bg-gray-800 text-white hover:bg-gray-700 transition duration-300 font-medium">Trending</button>
+              <button className="px-5 py-2 rounded-full bg-gray-200 text-gray-800 hover:bg-gray-300 transition duration-300 font-medium">Unanswered</button> */}
             </div>
           </div>
           {forumPosts.map((post, index) => (
@@ -129,12 +142,13 @@ const ForumListComp = () => {
             </ul>
           </div>
         </aside>
+        
       </div>
 
       <footer className="bg-gray-100 text-gray-600 py-8 px-6 md:px-10 text-center">
         <div className="container mx-auto">
           <p>&copy; 2025 UniConnect. All rights reserved.</p>
-          <div className="flex justify-center space-x-6 mt-5">
+          <div className="flex justify-center space-x-6 mt-5">  
             <a href="#" className="hover:text-black transition duration-300">About</a>
             <a href="#" className="hover:text-black transition duration-300">Contact</a>
             <a href="#" className="hover:text-black transition duration-300">Terms of Use</a>
