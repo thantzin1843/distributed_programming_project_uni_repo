@@ -1,14 +1,14 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import UniSidebar from '../../components/University/UniSidebar'
+import AdSidebar from '../../components/Admin/AdSidebar'
 
-function UniversityLayout() {
+const AdLayout= () => {
   return (
     <div className="flex min-h-screen bg-gray-100">
-      <UniSidebar />
+      <AdSidebar />
       <Outlet/>
     </div>
   )
 }
 
-export default UniversityLayout
+export default AdLayout
